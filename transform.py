@@ -42,7 +42,7 @@ def transform(cities):
     ]
 
     cities["wind_force_scale"] = pd.cut(
-        cities["wind_speed_mps"], bins=ranges, labels=group_names
+        cities["wind_speed_mps"], bins=ranges, labels=group_names, include_lowest=True
     )
 
     cities["is_extreme_heat"] = cities["temperature_c"] > 35

@@ -1,25 +1,16 @@
-import os
 from datetime import datetime
 import requests
 import pandas as pd
-from sqlalchemy import create_engine
-from dotenv import load_dotenv
-
-load_dotenv()
-API_KEY = os.getenv("OPENWEATHER_API_KEY")
-DB_URL = os.getenv("DB_URL")
-
-engine = create_engine(DB_URL)
 
 
-def get_cities():
+def get_cities(engine):
     q = "SELECT name FROM cities WHERE is_active = true;"
     df_cities = pd.read_sql(q, con=engine)
     return df_cities["name"].tolist()
 
 
-def extract():
-    cities = get_cities()
+def extract(engine, API_KEY):
+    cities = get_cities(engine)
     weather_records = []
 
     for city in cities:
