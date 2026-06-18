@@ -3,9 +3,7 @@ import logging
 from dotenv import load_dotenv
 from sqlalchemy import create_engine
 
-from extract import extract
-from transform import transform
-from load import load
+from src import extract, transform, load
 
 
 logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.INFO)
