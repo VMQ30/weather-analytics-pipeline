@@ -1,9 +1,17 @@
+import logging
 import pandas as pd
-import datetime as dt
 import numpy as np
 
 
+logging.basicConfig(format="%(levelname)s: %(message)s", level=logging.DEBUG)
+
+
 def transform(cities):
+    if cities.empty:
+        logging.warning("Received an empty DataFrame. Skipping transformation stage.")
+        return cities
+
+    logging.info("Starting transformation on extracted data")
     cities["extracted_at"] = pd.to_datetime(cities["extracted_at"])
     cities["date"] = cities["extracted_at"].dt.date
     cities["time"] = cities["extracted_at"].dt.time
@@ -53,4 +61,6 @@ def transform(cities):
     cities["day_of_the_week"] = cities["day_of_the_week"].astype("category")
 
     cities = cities.drop(columns="extracted_at")
+
+    logging.info("Finished transforming the extracted data")
     return cities
