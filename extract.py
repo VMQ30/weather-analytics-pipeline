@@ -18,7 +18,8 @@ def get_cities():
     return df_cities["name"].tolist()
 
 
-def extract_weather_data(cities):
+def extract():
+    cities = get_cities()
     weather_records = []
 
     for city in cities:
@@ -38,10 +39,3 @@ def extract_weather_data(cities):
             weather_records.append(record)
 
     return pd.DataFrame(weather_records)
-
-
-cities = get_cities()
-df = extract_weather_data(cities)
-print(df.columns)
-print(df.dtypes)
-print(df)
