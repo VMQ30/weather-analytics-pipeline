@@ -15,7 +15,7 @@ def get_cities(engine):
         logging.info("Successfully extracted active cities list")
         return df_cities["name"].tolist()
     except Exception as e:
-        logging.error("Failed to extract cities from database: {e}")
+        logging.error(f"Failed to extract cities from database: {e}")
         return []
 
 
