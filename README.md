@@ -15,7 +15,7 @@ The pipeline performs the following steps:
 
 ---
 
-## 🏗️ Project Architecture & Layout
+## Project Architecture & Layout
 
 The project follows a modular design pattern to ensure clean separation of concerns and robust testability.
 
