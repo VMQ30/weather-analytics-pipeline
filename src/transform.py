@@ -54,7 +54,7 @@ def transform(cities):
     )
 
     cities["is_extreme_heat"] = cities["temperature_c"] > 35
-    cities["is_extreme_cold"] = cities["temperature_c"] < 10
+    cities["is_extreme_cold"] = cities["temperature_c"] < -10
 
     cities["humidity_pct"] = cities["humidity_pct"].astype("int8")
     cities["weather_condition"] = cities["weather_condition"].astype("category")

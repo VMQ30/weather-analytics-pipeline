@@ -17,7 +17,7 @@ def pipeline_schedule():
         logging.error(f"Scheduler intercepted a pipeline failure: {e}")
 
 
-schedule.every().day.at("12:00").do(pipeline_schedule)
+schedule.every(1).hours.do(pipeline_schedule)
 
 
 if __name__ == "__main__":
